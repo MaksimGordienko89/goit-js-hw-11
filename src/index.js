@@ -61,7 +61,7 @@ function onLoadMoreBtn() {
 
       const totalPages = Math.ceil(data.totalHits / perPage);
 
-      if (page > totalPages) {
+      if (page === totalPages) {
         loadMoreBtn.classList.add('is-hidden');
         alertEndOfSearch();
       }
@@ -74,7 +74,7 @@ function alertImagesFound(data) {
 }
 
 function alertNoEmptySearch() {
-  Notiflix.Notify.failure(
+  Notiflix.Notify.info(
     'The search string cannot be empty. Please specify your search query.'
   );
 }
@@ -86,7 +86,7 @@ function alertNoImagesFound() {
 }
 
 function alertEndOfSearch() {
-  Notiflix.Notify.failure(
+  Notiflix.Notify.warning(
     "We're sorry, but you've reached the end of search results."
   );
 }
